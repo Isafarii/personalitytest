@@ -1,0 +1,143 @@
+<!-- traits/result_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Test Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+
+        .rotate {
+            font-size: 18px;
+            margin-bottom: 30px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .quote-container {
+            margin: 20px;
+            padding: 15px;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            background-color: #fff;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 16px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .poster {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            border-radius: 10px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        a {
+            color: #4caf50;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotateQuotes {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Personality Test Results</h1>
+    <p class="rotate">
+        <!-- Insert your result variable here -->
+        {{ result }}
+    </p>
+
+    <div class="quote-container">
+        <p class="quote" id="quote"></p>
+    </div>
+
+    <img class="poster" src="{% load static %}{% get_static_prefix %}traits/R.svg" alt="Personality Test Poster">
+
+    <script>
+        // Rotating quotes
+		const quotes = [
+			"The only normal people are the ones you don't know very well. - Alfred Adler",
+			"To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment. - Ralph Waldo Emerson",
+			"Knowing yourself is the beginning of all wisdom. - Aristotle",
+			"Personality is an unbroken series of successful gestures. - F. Scott Fitzgerald",
+			"Your time is limited, don't waste it living someone else's life. - Steve Jobs",
+			"I don't care what you think about me. I don't think about you at all. - Coco Chanel",
+			"The best way to predict the future is to create it. - Peter Drucker",
+			"The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela",
+			"The only way to do great work is to love what you do. - Steve Jobs",
+			"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe. - Albert Einstein",
+			"Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind. - Bernard M. Baruch",
+			"Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+			"The greatest wealth is to live content with little. - Plato",
+			"The purpose of our lives is to be happy. - Dalai Lama",
+			"Success is stumbling from failure to failure with no loss of enthusiasm. - Winston S. Churchill",
+			"Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. - Steve Jobs",
+			"It is better to be hated for what you are than to be loved for what you are not. - André Gide",
+			"In three words I can sum up everything I've learned about life: it goes on. - Robert Frost",
+			"You have within you right now, everything you need to deal with whatever the world can throw at you. - Brian Tracy"
+		];
+
+        let index = 0;
+        const quoteElement = document.getElementById("quote");
+
+        function fadeQuotes() {
+            quoteElement.style.opacity = 0;  // Fade out
+            setTimeout(() => {
+                quoteElement.innerText = quotes[index];
+                quoteElement.style.opacity = 1;  // Fade in
+                index = (index + 1) % quotes.length;
+            }, 2000);  // Adjust this time as needed
+        }
+
+        // Initial call to avoid showing the default text
+        fadeQuotes();
+
+        setInterval(fadeQuotes, 5000);  // Change quote every 5 seconds
+    </script>
+
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!-- traits/templates/traits/personality_test.html -->
+
+{% extends 'traits/base.html' %}
+
+{% block title %}Personality Test{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #f4f4f4;
+        font-family: 'Arial', sans-serif;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: auto;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    h2, h3 {
+        color: #333;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<h2>Personality Test</h2>
+<!-- traits/personality_test.html -->
+<form method="post" action="{% url 'personality_test' %}">
+    {% csrf_token %}
+    <h3>My Site - Big Five Personality Test</h3>
+    
+    <!-- Question 1 -->
+    <div style="margin-bottom: 15px;">
+        <label for="id_question1">Extraversion: How outgoing, energetic, and assertive are you? (1 to 5)</label>
+        {{ form.question1_response }}
+    </div>
+
+    <!-- Question 2 -->
+    <div style="margin-bottom: 15px;">
+        <label for="id_question2">Conscientiousness: How organized, responsible, and reliable are you? (1 to 5)</label>
+        {{ form.question2_response }}
+    </div>
+
+    <!-- Question 3 -->
+    <div style="margin-bottom: 15px;">
+        <label for="id_question3">Openness to Experience: How curious, imaginative, and open-minded are you? (1 to 5)</label>
+        {{ form.question3_response }}
+    </div>
+
+    <!-- Submit Button -->
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
