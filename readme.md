@@ -1,7 +1,7 @@
 # Personality Test Web App
 
 ## Overview
-This Django web application allows users to take a personality test and stores the results in a MySQL database. The application provides a proof of concept where users can input Likert scale responses to three personality test questions.
+This Django web application allows users to take a personality test and stores the results in a MySQL database. The application provides a proof of concept where users can input Likert scale responses to five personality test questions. The results are used to compare with other users from the same country.
 
 ## Prerequisites
 - Python 3.x
@@ -123,9 +123,10 @@ Visit [http://localhost:8000](http://localhost:8000) in your browser to access t
 ## Usage
 1. Open the web app in your browser.
 2. Navigate to the personality test page.
-3. Enter Likert scale responses for three personality test questions.
+3. Enter Likert scale responses for five personality test questions.
 4. Submit the form to store the results in the database.
 5. View the results on the result page.
+6. Compare your results with other users from the same country.
 
 ## Rotating Quotes and Result Page
 - The result page now includes rotating quotes about personality types.
