@@ -94,6 +94,17 @@
         <p class="quote" id="quote"></p>
     </div>
 
+    <!-- Display the latest user's scores -->
+    <div>
+        <h2>Latest User Scores</h2>
+        <p>Agreeable Score: {{ latest_user_scores.agreeable_score }}</p>
+        <p>Extraversion Score: {{ latest_user_scores.extraversion_score }}</p>
+        <p>Openness Score: {{ latest_user_scores.openness_score }}</p>
+        <p>Conscientiousness Score: {{ latest_user_scores.conscientiousness_score }}</p>
+        <p>Neuroticism Score: {{ latest_user_scores.neuroticism_score }}</p>
+        <!-- Add similar lines for other scores -->
+    </div>
+
     <img class="poster" src="{% load static %}{% get_static_prefix %}traits/R.svg" alt="Personality Test Poster">
 
     <script>

@@ -1,0 +1,49 @@
+<!-- traits/templates/traits/compare_results.html -->
+{% extends 'traits/base.html' %}
+
+{% block content %}
+<h1>Comparison Results</h1>
+<h2>User: {{ user_data }}</h2>
+
+<!-- Display user's scores -->
+<h2>User: {{ user_data.case_id }}</h2>
+<h3>User Scores:</h3>
+<ul>
+    <li>Agreeable Score: {{ user_scores.agreeable_score }}</li>
+    <li>Extraversion Score: {{ user_scores.extraversion_score }}</li>
+    <li>Openness Score: {{ user_scores.openness_score }}</li>
+    <li>Conscientiousness Score: {{ user_scores.conscientiousness_score }}</li>
+    <li>Neuroticism Score: {{ user_scores.neuroticism_score }}</li>
+</ul>
+
+<!-- Display similar users -->
+<h2>Similar Users:</h2>
+<ul>
+    {% for similar_user in similar_users %}
+    <li>User: {{ similar_user.case_id }}</li>
+    <li>Agreeable Score: {{ similar_user.agreeable_score }}</li>
+    <li>Extraversion Score: {{ similar_user.extraversion_score }}</li>
+    <li>Openness Score: {{ similar_user.openness_score }}</li>
+    <li>Conscientiousness Score: {{ similar_user.conscientiousness_score }}</li>
+    <li>Neuroticism Score: {{ similar_user.neuroticism_score }}</li>
+    {% endfor %}
+</ul>
+
+<!-- Display average scores -->
+<h2>Average Scores for Users in the Same Country:</h2>
+<ul>
+    <li>Agreeable Score: {{ average_scores.agreeable_score }}</li>
+    <li>Extraversion Score: {{ average_scores.extraversion_score }}</li>
+    <li>Openness Score: {{ average_scores.openness_score }}</li>
+    <li>Conscientiousness Score: {{ average_scores.conscientiousness_score }}</li>
+    <li>Neuroticism Score: {{ average_scores.neuroticism_score }}</li>
+</ul>
+
+<h3>Country Similarity:</h3>
+<ul>
+    {% for country in country_similarity %}
+    <li>{{ country.country }} - Similarity Score: {{ country.similarity_score }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -60,27 +60,41 @@
 
 <h2>Personality Test</h2>
 <!-- traits/personality_test.html -->
-<form method="post" action="{% url 'personality_test' %}">
+<form method="post" action="{% url 'traits:personality_test' %}">
     {% csrf_token %}
     <h3>My Site - Big Five Personality Test</h3>
-    
+
     <!-- Question 1 -->
     <div style="margin-bottom: 15px;">
-        <label for="id_question1">Extraversion: How outgoing, energetic, and assertive are you? (1 to 5)</label>
+        <label for="question1_response">Extraversion: How outgoing, energetic, and assertive are you? (1 to 5)</label>
         {{ form.question1_response }}
     </div>
 
     <!-- Question 2 -->
     <div style="margin-bottom: 15px;">
-        <label for="id_question2">Conscientiousness: How organized, responsible, and reliable are you? (1 to 5)</label>
+        <label for="question2_response">Conscientiousness: How organized, responsible, and reliable are you? (1 to 5)</label>
         {{ form.question2_response }}
     </div>
 
     <!-- Question 3 -->
     <div style="margin-bottom: 15px;">
-        <label for="id_question3">Openness to Experience: How curious, imaginative, and open-minded are you? (1 to 5)</label>
+        <label for="question3_response">Openness to Experience: How curious, imaginative, and open-minded are you? (1 to 5)</label>
         {{ form.question3_response }}
     </div>
+
+    <!-- Question 4 -->
+    <div style="margin-bottom: 15px;">
+        <label for="question4_response">Agreeableness: How compassionate, cooperative, and warm are you? (1 to 5)</label>
+        {{ form.question4_response }}
+    </div>
+
+    <!-- Question 5 -->
+    <div style="margin-bottom: 15px;">
+        <label for="question5_response">Neuroticism: How sensitive, nervous, and emotional are you? (1 to 5)</label>
+        {{ form.question5_response }}
+    </div>
+
+
 
     <!-- Submit Button -->
     <input type="submit" value="Submit">

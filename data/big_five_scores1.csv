@@ -1,0 +1,3 @@
+case_id,country,age,sex,agreeable_score,extraversion_score,openness_score,conscientiousness_score,neuroticism_score
+1,South Afri,24,1,0.753333333,0.496666667,0.803333333,0.886666667,0.426666667
+3,UK,24,2,0.733333333,0.68,0.786666667,0.746666667,0.59
